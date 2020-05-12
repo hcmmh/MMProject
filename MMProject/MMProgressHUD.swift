@@ -226,9 +226,9 @@ class MMProgressHUD: UIView {
             pro.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 15).isActive = true
             pro.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -15).isActive = true
             pro.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
-            pro.heightAnchor.constraint(equalToConstant: 5)
-            pro.trackTintColor = UIColor.white
-            pro.tintColor = UIColor.darkGray
+            pro.heightAnchor.constraint(equalToConstant: 5).isActive = true
+            pro.trackTintColor = UIColor.darkGray
+            pro.tintColor = UIColor.white
             titleLabel.topAnchor.constraint(equalTo: pro.bottomAnchor,constant:10).isActive = true
             self.progressView = pro
         default:
@@ -283,11 +283,27 @@ private class CycleProgress: UIView {
         }
         self.didLayout = true
         
+        let bl = CAShapeLayer()
+        bl.frame = self.bounds
+        bl.lineWidth = 4 // 圆弧的宽度
+        bl.fillColor = nil // 填充颜色为空
+        bl.strokeColor = UIColor.darkGray.cgColor // 描边颜色
+        
+        let b1 = UIBezierPath(ovalIn: self.bounds.insetBy(dx: 3, dy: 3)) // 贝塞尔路径
+        b1.apply(CGAffineTransform(translationX: -self.bounds.width / 2, y: -self.bounds.height / 2))
+        b1.apply(CGAffineTransform(rotationAngle: -.pi/2.0))
+        b1.apply(CGAffineTransform(translationX: self.bounds.width / 2, y: self.bounds.height / 2))
+        bl.path = b1.cgPath
+        self.layer.addSublayer(bl)
+        bl.zPosition = -1
+        bl.strokeStart = 0
+        bl.strokeEnd = 1 // 使用这个模拟进度
+        
         let layer = CAShapeLayer()
         layer.frame = self.bounds
-        layer.lineWidth = 2 // 圆弧的宽度
+        layer.lineWidth = 4 // 圆弧的宽度
         layer.fillColor = nil // 填充颜色为空
-        layer.strokeColor = UIColor.gray.cgColor // 描边颜色
+        layer.strokeColor = UIColor.white.cgColor // 描边颜色
         let b = UIBezierPath(ovalIn: self.bounds.insetBy(dx: 3, dy: 3)) // 贝塞尔路径
         b.apply(CGAffineTransform(translationX: -self.bounds.width / 2, y: -self.bounds.height / 2))
         b.apply(CGAffineTransform(rotationAngle: -.pi/2.0))

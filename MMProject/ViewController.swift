@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.white
-        self.list = ["Loading","Text","Progress","RoundProgress","Custom"]
+        self.list = ["Loading","Text","Progress","RoundProgress","Custom","MM"]
     }
 }
 
@@ -58,6 +58,11 @@ extension ViewController:UITableViewDelegate{
             hud.customView = c 
             hud.title = "提交成功"
             hud.hideHUD(view: self.view, delay: 2)
+        case 5:
+            MMProgressHUD.hideHUD(view: self.view, animated: true)
+            self.present(Demo1ViewController(), animated: true) {
+                
+            }
         default:
             print(indexPath.row)
         }

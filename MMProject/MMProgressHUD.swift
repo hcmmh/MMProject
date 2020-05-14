@@ -207,7 +207,6 @@ class MMProgressHUD: UIView {
                 view?.widthAnchor.constraint(equalToConstant: self.bounds.width/4).isActive = true
                 view?.heightAnchor.constraint(equalToConstant: (size?.height)! * self.bounds.width/4 / (size?.width)!).isActive = true
             }
-           
             view?.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
             view?.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
             activityView?.removeFromSuperview()

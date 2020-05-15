@@ -16,27 +16,36 @@ class Demo1ViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
-       
         v.isUserInteractionEnabled = true
         v.backgroundColor = UIColor.red
         self.view.addSubview(v)
         v.mm.makeConstraints { (make) in
             make.height.equalTo(100)
             make.width.equalTo(100)
+            make.top.equalTo(self.view.mm.safeTop)
             make.left.equalTo(self.view.mm.left)
-            make.top.equalTo(self.view.mm.top)
-            self.pir()
+        }
+        let v2 = UIView()
+        self.view.addSubview(v2)
+        v2.backgroundColor = UIColor.blue
+        v2.mm.makeConstraints { (make) in
+            make.edges.equalTo(10)
         }
         let tgr = UITapGestureRecognizer.init(target: self, action: #selector(click))
         v.addGestureRecognizer(tgr)
     }
-    func pir() {
-        print(22222)
-    }
     @objc func click(){
-        self.dismiss(animated: true) {
-            
-        }
+//        v.mm.makeConstraints { (make) in
+//            make.size.equalTo(width: 200, height: 300)
+//            make.top.equalTo(self.view.mm.safeTop)
+//            make.left.equalTo(view.mm.left, constant: 20)
+//        }
+//        self.dismiss(animated: true) {
+//
+//        }
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     deinit {
         print("demo1 deinit")

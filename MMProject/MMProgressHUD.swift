@@ -90,10 +90,11 @@ class MMProgressHUD: UIView {
         MMProgressHUD.removeHUD(view)
     }
     func hideHUD(view:UIView,delay:TimeInterval){
-        let time = Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { (t) in
-            MMProgressHUD.removeHUD(view)
-        }
+        let time = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(removeHUD), userInfo: nil, repeats: false)
         RunLoop.current.add(time, forMode: RunLoop.Mode.common)
+    }
+    @objc fileprivate func removeHUD(){
+        MMProgressHUD.removeHUD(self.superview!)
     }
     static func removeHUD(_ view:UIView){
         var hud = self.getHUD(view)

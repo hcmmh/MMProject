@@ -15,10 +15,12 @@
 		47195F7D246840F0004696CC /* MMProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F7C246840F0004696CC /* MMProjectTests.swift */; };
 		47195F88246840F0004696CC /* MMProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F87246840F0004696CC /* MMProjectUITests.swift */; };
 		47254CB8246924C7005FDFD6 /* MMProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47254CB7246924C7005FDFD6 /* MMProgressHUD.swift */; };
-		47574258246C372C0023E96F /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47574257246C372C0023E96F /* ConstraintView.swift */; };
-		47E1783D246D253000369466 /* MMLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E1783C246D253000369466 /* MMLayoutItem.swift */; };
-		47E1783F246D255900369466 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E1783E246D255900369466 /* ConstraintAttributes.swift */; };
-		47E17841246D256F00369466 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E17840246D256F00369466 /* LayoutConstraintItem.swift */; };
+		4775490E246EA49300BAB321 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47754909246EA49300BAB321 /* ConstraintView.swift */; };
+		4775490F246EA49300BAB321 /* MMLayoutDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4775490A246EA49300BAB321 /* MMLayoutDimension.swift */; };
+		47754910246EA49300BAB321 /* MMLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4775490B246EA49300BAB321 /* MMLayoutItem.swift */; };
+		47754911246EA49300BAB321 /* MMLayoutXItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4775490C246EA49300BAB321 /* MMLayoutXItem.swift */; };
+		47754912246EA49300BAB321 /* MMLayoutYItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4775490D246EA49300BAB321 /* MMLayoutYItem.swift */; };
+		47754914246EACF900BAB321 /* MMLayoutEdgesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47754913246EACF900BAB321 /* MMLayoutEdgesItem.swift */; };
 		47FD500D246BECCB00C50AC9 /* Demo1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD500C246BECCB00C50AC9 /* Demo1ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,10 +56,12 @@
 		47195F87246840F0004696CC /* MMProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMProjectUITests.swift; sourceTree = "<group>"; };
 		47195F89246840F0004696CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47254CB7246924C7005FDFD6 /* MMProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMProgressHUD.swift; sourceTree = "<group>"; };
-		47574257246C372C0023E96F /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
-		47E1783C246D253000369466 /* MMLayoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayoutItem.swift; sourceTree = "<group>"; };
-		47E1783E246D255900369466 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
-		47E17840246D256F00369466 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
+		47754909246EA49300BAB321 /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
+		4775490A246EA49300BAB321 /* MMLayoutDimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutDimension.swift; sourceTree = "<group>"; };
+		4775490B246EA49300BAB321 /* MMLayoutItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutItem.swift; sourceTree = "<group>"; };
+		4775490C246EA49300BAB321 /* MMLayoutXItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutXItem.swift; sourceTree = "<group>"; };
+		4775490D246EA49300BAB321 /* MMLayoutYItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutYItem.swift; sourceTree = "<group>"; };
+		47754913246EACF900BAB321 /* MMLayoutEdgesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayoutEdgesItem.swift; sourceTree = "<group>"; };
 		47FD500C246BECCB00C50AC9 /* Demo1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,13 +113,10 @@
 		47195F66246840EF004696CC /* MMProject */ = {
 			isa = PBXGroup;
 			children = (
-				47574257246C372C0023E96F /* ConstraintView.swift */,
-				47E1783C246D253000369466 /* MMLayoutItem.swift */,
-				47E1783E246D255900369466 /* ConstraintAttributes.swift */,
-				47E17840246D256F00369466 /* LayoutConstraintItem.swift */,
 				47195F67246840EF004696CC /* AppDelegate.swift */,
 				47195F69246840EF004696CC /* ViewController.swift */,
 				47FD500C246BECCB00C50AC9 /* Demo1ViewController.swift */,
+				47754908246EA49300BAB321 /* MMLayout */,
 				47195F952468424A004696CC /* MMProgressHUD */,
 				47195F6B246840EF004696CC /* Main.storyboard */,
 				47195F6E246840F0004696CC /* Assets.xcassets */,
@@ -149,6 +150,19 @@
 				47254CB7246924C7005FDFD6 /* MMProgressHUD.swift */,
 			);
 			name = MMProgressHUD;
+			sourceTree = "<group>";
+		};
+		47754908246EA49300BAB321 /* MMLayout */ = {
+			isa = PBXGroup;
+			children = (
+				47754909246EA49300BAB321 /* ConstraintView.swift */,
+				4775490A246EA49300BAB321 /* MMLayoutDimension.swift */,
+				4775490B246EA49300BAB321 /* MMLayoutItem.swift */,
+				4775490C246EA49300BAB321 /* MMLayoutXItem.swift */,
+				4775490D246EA49300BAB321 /* MMLayoutYItem.swift */,
+				47754913246EACF900BAB321 /* MMLayoutEdgesItem.swift */,
+			);
+			path = MMLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,14 +296,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47574258246C372C0023E96F /* ConstraintView.swift in Sources */,
+				4775490E246EA49300BAB321 /* ConstraintView.swift in Sources */,
+				47754914246EACF900BAB321 /* MMLayoutEdgesItem.swift in Sources */,
 				47195F6A246840EF004696CC /* ViewController.swift in Sources */,
-				47E1783F246D255900369466 /* ConstraintAttributes.swift in Sources */,
-				47E1783D246D253000369466 /* MMLayoutItem.swift in Sources */,
 				47195F68246840EF004696CC /* AppDelegate.swift in Sources */,
+				47754912246EA49300BAB321 /* MMLayoutYItem.swift in Sources */,
 				47FD500D246BECCB00C50AC9 /* Demo1ViewController.swift in Sources */,
+				47754910246EA49300BAB321 /* MMLayoutItem.swift in Sources */,
+				47754911246EA49300BAB321 /* MMLayoutXItem.swift in Sources */,
+				4775490F246EA49300BAB321 /* MMLayoutDimension.swift in Sources */,
 				47254CB8246924C7005FDFD6 /* MMProgressHUD.swift in Sources */,
-				47E17841246D256F00369466 /* LayoutConstraintItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S3V86L4KDE;
 				INFOPLIST_FILE = MMProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,6 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S3V86L4KDE;
 				INFOPLIST_FILE = MMProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -70,6 +70,9 @@ public struct ConstraintViewLayoutDSL {
     func makeConstraints(_ closure: makeClosure) {
         MMConstraintMaker.makeConstraints(item: self.view, closure: closure)
     }
+    func remakeConstraints(_ closure: makeClosure) {
+        MMConstraintMaker.remakeConstraints(item: self.view, closure: closure)
+    }
     func removeConstraints() {
         MMConstraintMaker.removeConstraints(item: self.view)
     }

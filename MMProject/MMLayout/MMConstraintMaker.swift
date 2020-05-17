@@ -31,6 +31,14 @@ class MMConstraintMaker {
         }
         prepareConstraints(item: item, closure: closure)
     }
+    static func remakeConstraints(item:MMLayoutConstraintItem,closure:makeClosure){
+        guard item.superview != nil else {
+            print("无法设置约束,因为superview为 nil")
+            return
+        }
+        removeConstraints(item: item)
+        prepareConstraints(item: item, closure: closure)
+    }
     static func removeConstraints(item:MMLayoutConstraintItem){
         guard let view = item as? ConstraintView else {
             return

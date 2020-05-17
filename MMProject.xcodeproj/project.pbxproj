@@ -16,11 +16,14 @@
 		47195F88246840F0004696CC /* MMProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F87246840F0004696CC /* MMProjectUITests.swift */; };
 		47254CB8246924C7005FDFD6 /* MMProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47254CB7246924C7005FDFD6 /* MMProgressHUD.swift */; };
 		4775490E246EA49300BAB321 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47754909246EA49300BAB321 /* ConstraintView.swift */; };
-		4775490F246EA49300BAB321 /* MMLayoutDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4775490A246EA49300BAB321 /* MMLayoutDimension.swift */; };
-		47754910246EA49300BAB321 /* MMLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4775490B246EA49300BAB321 /* MMLayoutItem.swift */; };
-		47754911246EA49300BAB321 /* MMLayoutXItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4775490C246EA49300BAB321 /* MMLayoutXItem.swift */; };
-		47754912246EA49300BAB321 /* MMLayoutYItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4775490D246EA49300BAB321 /* MMLayoutYItem.swift */; };
-		47754914246EACF900BAB321 /* MMLayoutEdgesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47754913246EACF900BAB321 /* MMLayoutEdgesItem.swift */; };
+		47F1F6032470EF5500EA7518 /* MMConstraintTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F6022470EF5500EA7518 /* MMConstraintTarget.swift */; };
+		47F1F6052470F4A400EA7518 /* MMConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F6042470F4A400EA7518 /* MMConstraintMaker.swift */; };
+		47F1F6072470F55200EA7518 /* MMLayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F6062470F55200EA7518 /* MMLayoutConstraintItem.swift */; };
+		47F1F60B247103B500EA7518 /* MMConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F60A247103B500EA7518 /* MMConstraintAttributes.swift */; };
+		47F1F60D2471055100EA7518 /* MMConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F60C2471055100EA7518 /* MMConstraintItem.swift */; };
+		47F1F60F247105B900EA7518 /* MMConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F60E247105B900EA7518 /* MMConstraintDescription.swift */; };
+		47F1F6112471073100EA7518 /* MMMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F6102471073100EA7518 /* MMMakerExtendable.swift */; };
+		47F1F61324713E8500EA7518 /* MMLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F61224713E8500EA7518 /* MMLayoutItem.swift */; };
 		47FD500D246BECCB00C50AC9 /* Demo1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD500C246BECCB00C50AC9 /* Demo1ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,11 +60,14 @@
 		47195F89246840F0004696CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47254CB7246924C7005FDFD6 /* MMProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMProgressHUD.swift; sourceTree = "<group>"; };
 		47754909246EA49300BAB321 /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
-		4775490A246EA49300BAB321 /* MMLayoutDimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutDimension.swift; sourceTree = "<group>"; };
-		4775490B246EA49300BAB321 /* MMLayoutItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutItem.swift; sourceTree = "<group>"; };
-		4775490C246EA49300BAB321 /* MMLayoutXItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutXItem.swift; sourceTree = "<group>"; };
-		4775490D246EA49300BAB321 /* MMLayoutYItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutYItem.swift; sourceTree = "<group>"; };
-		47754913246EACF900BAB321 /* MMLayoutEdgesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayoutEdgesItem.swift; sourceTree = "<group>"; };
+		47F1F6022470EF5500EA7518 /* MMConstraintTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConstraintTarget.swift; sourceTree = "<group>"; };
+		47F1F6042470F4A400EA7518 /* MMConstraintMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConstraintMaker.swift; sourceTree = "<group>"; };
+		47F1F6062470F55200EA7518 /* MMLayoutConstraintItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayoutConstraintItem.swift; sourceTree = "<group>"; };
+		47F1F60A247103B500EA7518 /* MMConstraintAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConstraintAttributes.swift; sourceTree = "<group>"; };
+		47F1F60C2471055100EA7518 /* MMConstraintItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConstraintItem.swift; sourceTree = "<group>"; };
+		47F1F60E247105B900EA7518 /* MMConstraintDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConstraintDescription.swift; sourceTree = "<group>"; };
+		47F1F6102471073100EA7518 /* MMMakerExtendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMakerExtendable.swift; sourceTree = "<group>"; };
+		47F1F61224713E8500EA7518 /* MMLayoutItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutItem.swift; sourceTree = "<group>"; };
 		47FD500C246BECCB00C50AC9 /* Demo1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,11 +162,14 @@
 			isa = PBXGroup;
 			children = (
 				47754909246EA49300BAB321 /* ConstraintView.swift */,
-				4775490A246EA49300BAB321 /* MMLayoutDimension.swift */,
-				4775490B246EA49300BAB321 /* MMLayoutItem.swift */,
-				4775490C246EA49300BAB321 /* MMLayoutXItem.swift */,
-				4775490D246EA49300BAB321 /* MMLayoutYItem.swift */,
-				47754913246EACF900BAB321 /* MMLayoutEdgesItem.swift */,
+				47F1F6062470F55200EA7518 /* MMLayoutConstraintItem.swift */,
+				47F1F6042470F4A400EA7518 /* MMConstraintMaker.swift */,
+				47F1F61224713E8500EA7518 /* MMLayoutItem.swift */,
+				47F1F6102471073100EA7518 /* MMMakerExtendable.swift */,
+				47F1F6022470EF5500EA7518 /* MMConstraintTarget.swift */,
+				47F1F60C2471055100EA7518 /* MMConstraintItem.swift */,
+				47F1F60E247105B900EA7518 /* MMConstraintDescription.swift */,
+				47F1F60A247103B500EA7518 /* MMConstraintAttributes.swift */,
 			);
 			path = MMLayout;
 			sourceTree = "<group>";
@@ -297,15 +306,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4775490E246EA49300BAB321 /* ConstraintView.swift in Sources */,
-				47754914246EACF900BAB321 /* MMLayoutEdgesItem.swift in Sources */,
 				47195F6A246840EF004696CC /* ViewController.swift in Sources */,
 				47195F68246840EF004696CC /* AppDelegate.swift in Sources */,
-				47754912246EA49300BAB321 /* MMLayoutYItem.swift in Sources */,
+				47F1F6072470F55200EA7518 /* MMLayoutConstraintItem.swift in Sources */,
+				47F1F61324713E8500EA7518 /* MMLayoutItem.swift in Sources */,
+				47F1F6032470EF5500EA7518 /* MMConstraintTarget.swift in Sources */,
 				47FD500D246BECCB00C50AC9 /* Demo1ViewController.swift in Sources */,
-				47754910246EA49300BAB321 /* MMLayoutItem.swift in Sources */,
-				47754911246EA49300BAB321 /* MMLayoutXItem.swift in Sources */,
-				4775490F246EA49300BAB321 /* MMLayoutDimension.swift in Sources */,
+				47F1F6112471073100EA7518 /* MMMakerExtendable.swift in Sources */,
+				47F1F60B247103B500EA7518 /* MMConstraintAttributes.swift in Sources */,
+				47F1F60F247105B900EA7518 /* MMConstraintDescription.swift in Sources */,
+				47F1F6052470F4A400EA7518 /* MMConstraintMaker.swift in Sources */,
 				47254CB8246924C7005FDFD6 /* MMProgressHUD.swift in Sources */,
+				47F1F60D2471055100EA7518 /* MMConstraintItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,35 +10,151 @@ import UIKit
 #else
 import AppKit
 #endif
-open class MMLayoutSizeItem{
-    var width:NSLayoutDimension {
-        return (target?.widthAnchor)!
+public class MMLayoutItem{
+    internal static func item(target: AnyObject?, attributes: MMConstraintAttributes)->MMLayoutItem{
+        let item = objc_getAssociatedObject(target!, Unmanaged.passUnretained(target!).toOpaque().advanced(by: Int(attributes.rawValue)+10001)) as? MMLayoutItem
+        if item == nil{
+            let temp = MMLayoutItem(target: target, attributes: attributes)
+            objc_setAssociatedObject(target!, Unmanaged.passUnretained(target!).toOpaque().advanced(by: Int(attributes.rawValue)+10001),temp, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+           return temp
+        }else{
+            return item!
+        }
     }
-    var height:NSLayoutDimension {
-        return (target?.heightAnchor)!
-    }
-    weak var target: ConstraintView?
-    internal var type:MMLayoutItemType
-    init(target: ConstraintView?, type: MMLayoutItemType) {
+    internal weak var target: AnyObject?
+    internal let attributes: MMConstraintAttributes
+    private init(target: AnyObject?, attributes: MMConstraintAttributes) {
         self.target = target
-        self.type = type
+        self.attributes = attributes
+    }
+    internal var layoutConstraintItem: MMLayoutConstraintItem? {
+        return self.target as? MMLayoutConstraintItem
+    }
+    var xanchor:NSLayoutXAxisAnchor?{
+        if attributes == .left {
+            return left
+        }
+        if attributes == .right {
+            return right
+        }
+        if attributes == .centerX {
+            return centerX
+        }
+        if attributes == .leading {
+            return leading
+        }
+        if attributes == .trailing {
+            return trailing
+        }
+        return nil
+    }
+    var yanchor:NSLayoutYAxisAnchor?{
+        if attributes == .top {
+            return top
+        }
+        if attributes == .bottom {
+            return bottom
+        }
+        if attributes == .centerY {
+            return centerY
+        }
+        if attributes == .safeTop {
+            return safeTop
+        }
+        if attributes == .safeBottom {
+            return safeBottom
+        }
+        return nil
+    }
+    var dimension:NSLayoutDimension?{
+        if attributes == .height {
+            return height
+        }
+        if attributes == .width {
+            return width
+        }
+        return nil
+    }
+    private var left:NSLayoutXAxisAnchor?{
+        return self.target?.leftAnchor
+    }
+    private var right:NSLayoutXAxisAnchor?{
+        return self.target?.rightAnchor
+    }
+    private var centerX:NSLayoutXAxisAnchor?{
+        return self.target?.centerXAnchor
+    }
+    private var top:NSLayoutYAxisAnchor?{
+        return self.target?.topAnchor
+    }
+    private var bottom:NSLayoutYAxisAnchor?{
+        return self.target?.bottomAnchor
+    }
+    private var centerY:NSLayoutYAxisAnchor?{
+        return self.target?.centerYAnchor
+    }
+    private var leading:NSLayoutXAxisAnchor?{
+        return self.target?.leadingAnchor
+    }
+    private var trailing:NSLayoutXAxisAnchor?{
+        return self.target?.trailingAnchor
+    }
+    private var safeTop:NSLayoutYAxisAnchor?{
+        return self.target?.safeAreaLayoutGuide?.topAnchor
+    }
+    private var safeBottom:NSLayoutYAxisAnchor?{
+        return self.target?.safeAreaLayoutGuide?.bottomAnchor
+    }
+    private var width:NSLayoutDimension?{
+        return self.target?.widthAnchor
+    }
+    private var height:NSLayoutDimension?{
+        return self.target?.heightAnchor
+    }
+    private var center:MMLayoutItem?{
+        return MMLayoutItem.item(target: self.target, attributes: .center)
+    }
+    private var size:MMLayoutItem?{
+        return MMLayoutItem.item(target: self.target, attributes: .size)
+    }
+    private var edges:MMLayoutItem?{
+        return MMLayoutItem.item(target: self.target, attributes: .edges)
     }
 }
-enum MMLayoutItemType:Int {
-    case left = 3001
-    case right = 3002
-    case top = 3003
-    case bottom = 3004
-    case width = 3005
-    case height = 3006
-    case size = 3007
-    case leading = 3008
-    case trailing = 3009
-    case centerX = 3010
-    case centerY = 3011
-    case safeTop = 3012
-    case safeBottom = 3013
-    case safeLeft = 3014
-    case safeRight = 3015
-    case edges = 3016
+extension MMLayoutItem{
+    @discardableResult
+    func equalTo(_ other:MMLayoutItem?,multiplier:CGFloat, cons:CGFloat)->NSLayoutConstraint? {
+        let view = self.target as! ConstraintView
+        var o = other
+        var layout:NSLayoutConstraint? = view.mmConstraint(key: attributes)
+        if layout != nil{
+            NSLayoutConstraint.deactivate([layout!])
+        }
+        if o == nil{
+            o = MMLayoutItem.item(target: view.superview, attributes: attributes)
+        }
+        if attributes == .left || attributes == .right || attributes == .centerX || attributes == .leading || attributes == .trailing  {
+            if o?.xanchor != nil{
+                layout = xanchor!.constraint(equalTo: (o?.xanchor)!, constant: cons)
+            }
+        }
+        if attributes == .top || attributes == .bottom || attributes == .centerY || attributes == .safeTop || attributes == .safeBottom  {
+            if o?.yanchor != nil{
+                layout = yanchor!.constraint(equalTo: (o?.yanchor)!, constant: cons)
+            }
+        }
+        if attributes == .width || attributes == .height {
+            if other == nil{
+                layout = dimension!.constraint(equalToConstant: cons)
+            }else{
+                layout = dimension!.constraint(equalTo: (o?.dimension)!, multiplier: multiplier, constant: cons)
+            }
+        }
+        layout?.isActive = true
+        if layout != nil {
+            view.setMMConstraint(key: attributes, value: layout!)
+        }
+        return layout
+    }
 }
+

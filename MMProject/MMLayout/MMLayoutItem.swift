@@ -75,6 +75,12 @@ public class MMLayoutItem{
         }
         return nil
     }
+    var widthDimension:NSLayoutDimension?{
+        return width
+    }
+    var heightDimension:NSLayoutDimension?{
+        return height
+    }
     private var left:NSLayoutXAxisAnchor?{
         return self.target?.leftAnchor
     }
@@ -147,7 +153,13 @@ extension MMLayoutItem{
             if other == nil{
                 layout = dimension!.constraint(equalToConstant: cons)
             }else{
-                layout = dimension!.constraint(equalTo: (o?.dimension)!, multiplier: multiplier, constant: cons)
+                if attributes == .width && o?.attributes == .size{
+                    layout = dimension!.constraint(equalTo: (o?.widthDimension)!, multiplier: multiplier, constant: cons)
+                }else if attributes == .height && o?.attributes == .size{
+                    layout = dimension!.constraint(equalTo: (o?.heightDimension)!, multiplier: multiplier, constant: cons)
+                }else{
+                    layout = dimension!.constraint(equalTo: (o?.dimension)!, multiplier: multiplier, constant: cons)
+                }
             }
         }
         layout?.isActive = true

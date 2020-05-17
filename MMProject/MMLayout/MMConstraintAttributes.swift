@@ -80,6 +80,9 @@ internal struct MMConstraintAttributes:OptionSet,ExpressibleByIntegerLiteral{
         if (self.contains(MMConstraintAttributes.edges)) {
             attrs.append(.edges)
         }
+        if (self.contains(MMConstraintAttributes.size)) {
+            attrs.append(.size)
+        }
         return attrs
     }
 }

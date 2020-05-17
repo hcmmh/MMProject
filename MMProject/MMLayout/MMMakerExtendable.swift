@@ -102,8 +102,8 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
             if let v = other as? ConstraintView{
                 for i in self.description.attributes.layoutAttributes{
                     if i == .size{
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .width).equalTo(v.mm.width, multiplier: multiplier, cons: 0)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .height).equalTo(v.mm.height, multiplier: multiplier, cons: 0)
+                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .width).equalTo(v.mm.width, multiplier: multiplier, cons: cons.constant)
+                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .height).equalTo(v.mm.height, multiplier: multiplier, cons: cons.constant)
                     }else if(i == .edges){
                         MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .left).equalTo(v.mm.left, multiplier: multiplier, cons: cons.constant)
                         MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .right).equalTo(v.mm.right, multiplier: multiplier, cons: -cons.constant)
@@ -131,9 +131,9 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
             }
             if let v = other as? MMLayoutItem{
                 for i in self.description.attributes.layoutAttributes{
-                    if i == .size{
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .width).equalTo(v, multiplier: multiplier, cons: 0)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .height).equalTo(v, multiplier: multiplier, cons: 0)
+                    if i == .size || i == .center{
+                        let view = v.target as? ConstraintView
+                        equalTo(view, multiplier: multiplier, cons: cons)
                     }else{
                         MMLayoutItem.item(target: self.description.item as AnyObject, attributes: i).equalTo(v, multiplier: multiplier, cons: cons.constant)
                     }

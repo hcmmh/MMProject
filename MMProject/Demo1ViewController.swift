@@ -19,16 +19,24 @@ class Demo1ViewController: UIViewController {
         v.backgroundColor = UIColor.red
         self.view.addSubview(v)
         v.mm.makeConstraints { (make) in
-            make.leading.equalTo(25)
-            make.top.equalTo(view.mm.safeTop)
-            make.height.equalTo(100)
+//            make.leading.equalTo(25)
+//            make.top.equalTo(view.mm.safeTop)
+//            make.height.equalTo(100)
+            make.width.height.equalTo(100)
+            make.top.equalTo(100)
+            make.centerX.equalToSuperView()
         }
         self.view.addSubview(v2)
         v2.backgroundColor = UIColor.blue
         v2.mm.makeConstraints { (make) in
-            make.top.height.width.equalTo(v)
-            make.leading.equalTo(v.mm.trailing, cons: 25)
-            make.trailing.equalTo(-25)
+//            make.top.height.width.equalTo(v)
+//            make.leading.equalTo(v.mm.trailing, cons: 25)
+//            make.trailing.equalTo(-25)
+            make.center.equalToSuperView()
+            make.size.equalTo(v.mm.size)
+        }
+        v2.mm.makeConstraints { (make) in
+//            make.center.equalTo(v.mm.center)
         }
         let tgr = UITapGestureRecognizer.init(target: self, action: #selector(click))
         v.addGestureRecognizer(tgr)
@@ -44,15 +52,5 @@ class Demo1ViewController: UIViewController {
     deinit {
         print("demo1 deinit")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

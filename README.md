@@ -8,7 +8,7 @@ MMProgressHUD.showHUDonView(view: self.view, animated: true)
 MMProgressHUD.hideHUD(view: self.view, animated: true)   
 ```
 
-<img src="http://honchuang.cn/attachment/20200518/63d4c599e4474979aae100787031d1b3.png"  style="width:200px"  alt="loading"/>
+<img src="http://honchuang.cn/attachment/20200518/63d4c599e4474979aae100787031d1b3.png" style="width:200px;"  alt="loading"/>
 
 ![loading](http://honchuang.cn/attachment/20200518/63d4c599e4474979aae100787031d1b3.png)
 ### 2、Text

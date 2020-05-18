@@ -82,7 +82,6 @@ class MMLayoutDemoViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.description
     }
     deinit {
         print("MMLayoutDemoViewController deinit")

@@ -108,8 +108,7 @@ func bisection(){
 }
 ```
 
-
-![](http://honchuang.cn/attachment/20200518/b3b4b16ade05421598d79ee89650af29.png"example")
+<img src="http://honchuang.cn/attachment/20200518/b3b4b16ade05421598d79ee89650af29.png" alt="example"/>
 
 
 具体代码运行效果请下载项目运行查看

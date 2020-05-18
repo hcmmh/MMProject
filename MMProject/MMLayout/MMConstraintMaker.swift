@@ -85,4 +85,10 @@ class MMConstraintMaker {
     var center:MMMakerExtendable{
         return self.makeExtendableWithAttributes(.center)
     }
+    var firstBaseline:MMMakerExtendable{
+        return self.makeExtendableWithAttributes(.firstBaseline)
+    }
+    var lastBaseline:MMMakerExtendable{
+        return self.makeExtendableWithAttributes(.lastBaseline)
+    }
 }

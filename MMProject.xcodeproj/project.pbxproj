@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47128208247262A400E39C93 /* MMProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47128207247262A400E39C93 /* MMProgressHUD.swift */; };
 		47195F68246840EF004696CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F67246840EF004696CC /* AppDelegate.swift */; };
 		47195F6A246840EF004696CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F69246840EF004696CC /* ViewController.swift */; };
 		47195F6D246840EF004696CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47195F6B246840EF004696CC /* Main.storyboard */; };
@@ -14,7 +15,6 @@
 		47195F72246840F0004696CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47195F70246840F0004696CC /* LaunchScreen.storyboard */; };
 		47195F7D246840F0004696CC /* MMProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F7C246840F0004696CC /* MMProjectTests.swift */; };
 		47195F88246840F0004696CC /* MMProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F87246840F0004696CC /* MMProjectUITests.swift */; };
-		47254CB8246924C7005FDFD6 /* MMProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47254CB7246924C7005FDFD6 /* MMProgressHUD.swift */; };
 		4775490E246EA49300BAB321 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47754909246EA49300BAB321 /* ConstraintView.swift */; };
 		47F1F6032470EF5500EA7518 /* MMConstraintTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F6022470EF5500EA7518 /* MMConstraintTarget.swift */; };
 		47F1F6052470F4A400EA7518 /* MMConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F6042470F4A400EA7518 /* MMConstraintMaker.swift */; };
@@ -24,7 +24,7 @@
 		47F1F60F247105B900EA7518 /* MMConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F60E247105B900EA7518 /* MMConstraintDescription.swift */; };
 		47F1F6112471073100EA7518 /* MMMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F6102471073100EA7518 /* MMMakerExtendable.swift */; };
 		47F1F61324713E8500EA7518 /* MMLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F61224713E8500EA7518 /* MMLayoutItem.swift */; };
-		47FD500D246BECCB00C50AC9 /* Demo1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD500C246BECCB00C50AC9 /* Demo1ViewController.swift */; };
+		47FD500D246BECCB00C50AC9 /* MMLayoutDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD500C246BECCB00C50AC9 /* MMLayoutDemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		47128207247262A400E39C93 /* MMProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMProgressHUD.swift; sourceTree = "<group>"; };
 		47195F64246840EF004696CC /* MMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47195F67246840EF004696CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47195F69246840EF004696CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		47195F83246840F0004696CC /* MMProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47195F87246840F0004696CC /* MMProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMProjectUITests.swift; sourceTree = "<group>"; };
 		47195F89246840F0004696CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47254CB7246924C7005FDFD6 /* MMProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMProgressHUD.swift; sourceTree = "<group>"; };
 		47754909246EA49300BAB321 /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
 		47F1F6022470EF5500EA7518 /* MMConstraintTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConstraintTarget.swift; sourceTree = "<group>"; };
 		47F1F6042470F4A400EA7518 /* MMConstraintMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConstraintMaker.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		47F1F60E247105B900EA7518 /* MMConstraintDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConstraintDescription.swift; sourceTree = "<group>"; };
 		47F1F6102471073100EA7518 /* MMMakerExtendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMakerExtendable.swift; sourceTree = "<group>"; };
 		47F1F61224713E8500EA7518 /* MMLayoutItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMLayoutItem.swift; sourceTree = "<group>"; };
-		47FD500C246BECCB00C50AC9 /* Demo1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1ViewController.swift; sourceTree = "<group>"; };
+		47FD500C246BECCB00C50AC9 /* MMLayoutDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayoutDemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47128206247262A400E39C93 /* MMProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				47128207247262A400E39C93 /* MMProgressHUD.swift */,
+			);
+			path = MMProgressHUD;
+			sourceTree = "<group>";
+		};
 		47195F5B246840EF004696CC = {
 			isa = PBXGroup;
 			children = (
@@ -121,9 +129,9 @@
 			children = (
 				47195F67246840EF004696CC /* AppDelegate.swift */,
 				47195F69246840EF004696CC /* ViewController.swift */,
-				47FD500C246BECCB00C50AC9 /* Demo1ViewController.swift */,
+				47FD500C246BECCB00C50AC9 /* MMLayoutDemoViewController.swift */,
+				47128206247262A400E39C93 /* MMProgressHUD */,
 				47754908246EA49300BAB321 /* MMLayout */,
-				47195F952468424A004696CC /* MMProgressHUD */,
 				47195F6B246840EF004696CC /* Main.storyboard */,
 				47195F6E246840F0004696CC /* Assets.xcassets */,
 				47195F70246840F0004696CC /* LaunchScreen.storyboard */,
@@ -148,14 +156,6 @@
 				47195F89246840F0004696CC /* Info.plist */,
 			);
 			path = MMProjectUITests;
-			sourceTree = "<group>";
-		};
-		47195F952468424A004696CC /* MMProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				47254CB7246924C7005FDFD6 /* MMProgressHUD.swift */,
-			);
-			name = MMProgressHUD;
 			sourceTree = "<group>";
 		};
 		47754908246EA49300BAB321 /* MMLayout */ = {
@@ -310,13 +310,13 @@
 				47195F68246840EF004696CC /* AppDelegate.swift in Sources */,
 				47F1F6072470F55200EA7518 /* MMLayoutConstraintItem.swift in Sources */,
 				47F1F61324713E8500EA7518 /* MMLayoutItem.swift in Sources */,
+				47128208247262A400E39C93 /* MMProgressHUD.swift in Sources */,
 				47F1F6032470EF5500EA7518 /* MMConstraintTarget.swift in Sources */,
-				47FD500D246BECCB00C50AC9 /* Demo1ViewController.swift in Sources */,
+				47FD500D246BECCB00C50AC9 /* MMLayoutDemoViewController.swift in Sources */,
 				47F1F6112471073100EA7518 /* MMMakerExtendable.swift in Sources */,
 				47F1F60B247103B500EA7518 /* MMConstraintAttributes.swift in Sources */,
 				47F1F60F247105B900EA7518 /* MMConstraintDescription.swift in Sources */,
 				47F1F6052470F4A400EA7518 /* MMConstraintMaker.swift in Sources */,
-				47254CB8246924C7005FDFD6 /* MMProgressHUD.swift in Sources */,
 				47F1F60D2471055100EA7518 /* MMConstraintItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

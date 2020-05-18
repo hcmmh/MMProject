@@ -37,7 +37,8 @@ internal struct MMConstraintAttributes:OptionSet,ExpressibleByIntegerLiteral{
     internal static var centerY: MMConstraintAttributes { return 512 }
     internal static var safeTop: MMConstraintAttributes { return 1024 }
     internal static var safeBottom: MMConstraintAttributes { return 2048 }
-
+    internal static var firstBaseline: MMConstraintAttributes { return 4096 }
+    internal static var lastBaseline: MMConstraintAttributes { return 8192 }
     // aggregates
     internal static var edges: MMConstraintAttributes { return 15 }
     internal static var size: MMConstraintAttributes { return 192 }
@@ -82,6 +83,12 @@ internal struct MMConstraintAttributes:OptionSet,ExpressibleByIntegerLiteral{
         }
         if (self.contains(MMConstraintAttributes.size)) {
             attrs.append(.size)
+        }
+        if (self.contains(MMConstraintAttributes.firstBaseline)) {
+            attrs.append(.firstBaseline)
+        }
+        if (self.contains(MMConstraintAttributes.lastBaseline)) {
+            attrs.append(.lastBaseline)
         }
         return attrs
     }

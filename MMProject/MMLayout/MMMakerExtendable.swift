@@ -58,6 +58,14 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
         self.description.attributes += .size
         return self
     }
+    public var firstBaseline: MMMakerExtendable {
+        self.description.attributes += .firstBaseline
+        return self
+    }
+    public var lastBaseline: MMMakerExtendable {
+        self.description.attributes += .lastBaseline
+        return self
+    }
     internal let description: MMConstraintDescription
     
     internal init(_ description: MMConstraintDescription) {
@@ -91,9 +99,9 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
             for i in self.description.attributes.layoutAttributes{
                 if i == .edges{
                     MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .left).equalTo(nil, multiplier: multiplier, cons: cons.constant)
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .right).equalTo(nil, multiplier: multiplier, cons: -cons.constant)
+                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .right).equalTo(nil, multiplier: multiplier, cons: cons.constant)
                     MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .top).equalTo(nil, multiplier: multiplier, cons: cons.constant)
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .bottom).equalTo(nil, multiplier: multiplier, cons: -cons.constant)
+                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .bottom).equalTo(nil, multiplier: multiplier, cons: cons.constant)
                 }else{
                     MMLayoutItem.item(target: self.description.item as AnyObject, attributes: i).equalTo(nil, multiplier: multiplier, cons: cons.constant)
                 }
@@ -106,9 +114,9 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
                         MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .height).equalTo(v.mm.height, multiplier: multiplier, cons: cons.constant)
                     }else if(i == .edges){
                         MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .left).equalTo(v.mm.left, multiplier: multiplier, cons: cons.constant)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .right).equalTo(v.mm.right, multiplier: multiplier, cons: -cons.constant)
+                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .right).equalTo(v.mm.right, multiplier: multiplier, cons: cons.constant)
                         MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .top).equalTo(v.mm.top, multiplier: multiplier, cons: cons.constant)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .bottom).equalTo(v.mm.bottom, multiplier: multiplier, cons: -cons.constant)
+                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .bottom).equalTo(v.mm.bottom, multiplier: multiplier, cons: cons.constant)
                     }else if(i == .center){
                         MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .centerX).equalTo(v.mm.centerX, multiplier: multiplier, cons:cons.constant)
                         MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .centerY).equalTo(v.mm.centerY, multiplier: multiplier, cons: cons.constant)

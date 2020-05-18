@@ -64,6 +64,12 @@ public class MMLayoutItem{
         if attributes == .safeBottom {
             return safeBottom
         }
+        if attributes == .firstBaseline {
+            return firstBaseline
+        }
+        if attributes == .lastBaseline {
+            return lastBaseline
+        }
         return nil
     }
     var dimension:NSLayoutDimension?{
@@ -117,6 +123,12 @@ public class MMLayoutItem{
     private var height:NSLayoutDimension?{
         return self.target?.heightAnchor
     }
+    private var firstBaseline:NSLayoutYAxisAnchor?{
+        return self.target?.firstBaselineAnchor
+    }
+    private var lastBaseline:NSLayoutYAxisAnchor?{
+        return self.target?.lastBaselineAnchor
+    }
     private var center:MMLayoutItem?{
         return MMLayoutItem.item(target: self.target, attributes: .center)
     }
@@ -139,14 +151,24 @@ extension MMLayoutItem{
         if o == nil{
             o = MMLayoutItem.item(target: view.superview, attributes: attributes)
         }
-        if attributes == .left || attributes == .right || attributes == .centerX || attributes == .leading || attributes == .trailing  {
+        if attributes == .left || attributes == .centerX || attributes == .leading {
             if o?.xanchor != nil{
                 layout = xanchor!.constraint(equalTo: (o?.xanchor)!, constant: cons)
             }
         }
-        if attributes == .top || attributes == .bottom || attributes == .centerY || attributes == .safeTop || attributes == .safeBottom  {
+        if attributes == .right || attributes == .trailing{
+            if o?.xanchor != nil{
+                layout = xanchor!.constraint(equalTo: (o?.xanchor)!, constant: -cons)
+            }
+        }
+        if attributes == .top || attributes == .bottom || attributes == .centerY || attributes == .safeTop || attributes == .firstBaseline || attributes == .lastBaseline{
             if o?.yanchor != nil{
                 layout = yanchor!.constraint(equalTo: (o?.yanchor)!, constant: cons)
+            }
+        }
+        if attributes == .bottom ||  attributes == .safeBottom {
+            if o?.yanchor != nil{
+                layout = yanchor!.constraint(equalTo: (o?.yanchor)!, constant: -cons)
             }
         }
         if attributes == .width || attributes == .height {

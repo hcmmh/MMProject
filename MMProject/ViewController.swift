@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.white
-        self.list = ["Loading","Text","Progress","RoundProgress","Custom","MM"]
+        self.title = "MMProject"
+        self.list = ["Loading","Text","Progress","RoundProgress","Custom","MMLayout"]
     }
 }
 
@@ -60,9 +61,7 @@ extension ViewController:UITableViewDelegate{
             hud.hideHUD(view: self.view, delay: 2)
         case 5:
             MMProgressHUD.hideHUD(view: self.view, animated: true)
-            self.present(Demo1ViewController(), animated: true) {
-                
-            }
+            self.navigationController?.pushViewController(MMLayoutDemoViewController(), animated: true)
         default:
             print(indexPath.row)
         }

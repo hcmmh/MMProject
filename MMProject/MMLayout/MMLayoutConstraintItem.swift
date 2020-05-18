@@ -8,7 +8,6 @@
 
 import UIKit
 public typealias MMConstraintLayoutGuide = UILayoutGuide
-
 public protocol MMLayoutConstraintItem{}
 extension ConstraintView:MMLayoutConstraintItem{}
 extension MMConstraintLayoutGuide:MMLayoutConstraintItem{}

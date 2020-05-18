@@ -24,7 +24,7 @@ extension ConstraintView{
             return view as! ConstraintViewLayoutDSL
         }
     }
-    internal func getAddressKey(key:UInt)->UnsafeMutableRawPointer{
+    private func getAddressKey(key:UInt)->UnsafeMutableRawPointer{
         return Unmanaged.passUnretained(self).toOpaque().advanced(by: Int(key))
     }
     internal func setCustomValue(_ value:Any,forKey:UnsafeMutableRawPointer){

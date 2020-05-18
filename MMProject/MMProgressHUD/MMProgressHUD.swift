@@ -44,8 +44,6 @@ class MMProgressHUD: UIView {
             self.titleLabel.text = tip+"%"
         }
     }
-    
-    
     fileprivate var cycleProgress:CycleProgress?
     fileprivate var progressView:UIProgressView?
     

@@ -76,13 +76,18 @@ internal struct MMConstraintAttributes:OptionSet,ExpressibleByIntegerLiteral{
             attrs.append(.centerY)
         }
         if (self.contains(MMConstraintAttributes.center)) {
-            attrs.append(.center)
+            attrs.append(.centerX)
+            attrs.append(.centerY)
         }
         if (self.contains(MMConstraintAttributes.edges)) {
-            attrs.append(.edges)
+            attrs.append(.left)
+            attrs.append(.right)
+            attrs.append(.top)
+            attrs.append(.bottom)
         }
         if (self.contains(MMConstraintAttributes.size)) {
-            attrs.append(.size)
+            attrs.append(.width)
+            attrs.append(.height)
         }
         if (self.contains(MMConstraintAttributes.firstBaseline)) {
             attrs.append(.firstBaseline)

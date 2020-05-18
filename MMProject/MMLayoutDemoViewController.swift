@@ -15,12 +15,13 @@ class MMLayoutDemoViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.navigationController?.isNavigationBarHidden = false
         self.title = "MMLayout布局"
+        let edgesView = self.edgesUI()
         let subview = UIView()
         self.view.addSubview(subview)
         subview.backgroundColor = UIColor.green
         subview.mm.makeConstraints({
             $0.center.equalToSuperView()
-            $0.size.equalTo(self.edgesUI())
+            $0.size.lessThanOrEqualTo(edgesView,cons:-25)
         })
         self.bisection()
     }
@@ -29,7 +30,7 @@ class MMLayoutDemoViewController: UIViewController {
         self.view.addSubview(edgesView)
         edgesView.backgroundColor = UIColor.red
         edgesView.mm.makeConstraints { (make) in
-            make.top.equalTo(150)
+            make.top.equalTo(view.mm.safeTop, cons: 120)
             make.centerX.equalToSuperView()
             make.width.equalTo(self.view, multiplier: 0.7)
             make.height.equalTo(100)

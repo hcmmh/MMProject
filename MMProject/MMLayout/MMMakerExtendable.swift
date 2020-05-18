@@ -9,6 +9,7 @@
 import UIKit
 
 public protocol MMMakerConstraintExtendable{}
+
 public class MMMakerExtendable:MMMakerConstraintExtendable{
     public var left: MMMakerExtendable {
         self.description.attributes += .left
@@ -50,12 +51,22 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
         self.description.attributes += .centerY
         return self
     }
+    public var center: MMMakerExtendable {
+        self.description.attributes += .centerX
+        self.description.attributes += .centerY
+        return self
+    }
     public var edges: MMMakerExtendable {
-        self.description.attributes += .edges
+        self.description.attributes += .left
+        self.description.attributes += .right
+        self.description.attributes += .top
+        self.description.attributes += .bottom
+
         return self
     }
     public var size: MMMakerExtendable {
-        self.description.attributes += .size
+        self.description.attributes += .height
+        self.description.attributes += .width
         return self
     }
     public var firstBaseline: MMMakerExtendable {
@@ -71,7 +82,7 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
     internal init(_ description: MMConstraintDescription) {
         self.description = description
     }
-  
+
     func equalTo(_ other:MMConstraintTarget?){
         if let other = other as? MMLayoutItem{
             equalTo(other, multiplier: 1, cons: 0)
@@ -94,60 +105,89 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
     func equalTo(_ other:MMConstraintTarget?,multiplier:CGFloat){
         equalTo(other, multiplier: multiplier, cons: 0)
     }
-    func equalTo(_ other:MMConstraintTarget?,multiplier:CGFloat, cons:MMConstraintTarget){
+    func equalTo(_ other:MMConstraintTarget?,multiplier:CGFloat, cons:MMConstraintTarget,type:Int = 0){
+        let item = self.description.item as AnyObject
         if other == nil {
             for i in self.description.attributes.layoutAttributes{
-                if i == .edges{
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .left).equalTo(nil, multiplier: multiplier, cons: cons.constant)
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .right).equalTo(nil, multiplier: multiplier, cons: cons.constant)
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .top).equalTo(nil, multiplier: multiplier, cons: cons.constant)
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .bottom).equalTo(nil, multiplier: multiplier, cons: cons.constant)
-                }else{
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: i).equalTo(nil, multiplier: multiplier, cons: cons.constant)
-                }
+                MMLayoutItem.item(target: item, attributes: i).equalTo(nil, multiplier: multiplier, cons: cons.constant,type: type)
             }
         }else{
-            if let v = other as? ConstraintView{
-                for i in self.description.attributes.layoutAttributes{
-                    if i == .size{
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .width).equalTo(v.mm.width, multiplier: multiplier, cons: cons.constant)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .height).equalTo(v.mm.height, multiplier: multiplier, cons: cons.constant)
-                    }else if(i == .edges){
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .left).equalTo(v.mm.left, multiplier: multiplier, cons: cons.constant)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .right).equalTo(v.mm.right, multiplier: multiplier, cons: cons.constant)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .top).equalTo(v.mm.top, multiplier: multiplier, cons: cons.constant)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .bottom).equalTo(v.mm.bottom, multiplier: multiplier, cons: cons.constant)
-                    }else if(i == .center){
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .centerX).equalTo(v.mm.centerX, multiplier: multiplier, cons:cons.constant)
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .centerY).equalTo(v.mm.centerY, multiplier: multiplier, cons: cons.constant)
-                    }else{
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: i).equalTo(MMLayoutItem.item(target: v, attributes: i), multiplier: multiplier, cons: cons.constant)
-                    }
-                }
-            }
             if let v = other as? CGSize{
-                if self.description.attributes == .size{
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .width).equalTo(nil, multiplier: multiplier, cons: v.width)
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .height).equalTo(nil, multiplier: multiplier, cons: v.height)
+                if self.description.attributes.contains(.width){
+                    MMLayoutItem.item(target: item, attributes: .width).equalTo(nil, multiplier: multiplier, cons: v.width,type: type)
+                }
+                if self.description.attributes.contains(.height){
+                    MMLayoutItem.item(target: item, attributes: .height).equalTo(nil, multiplier: multiplier, cons: v.height,type: type)
                 }
             }
             if let v = other as? CGPoint{
-                if self.description.attributes == .center{
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .centerX).equalTo(nil, multiplier: multiplier, cons: v.x)
-                    MMLayoutItem.item(target: self.description.item as AnyObject, attributes: .centerY).equalTo(nil, multiplier: multiplier, cons: v.y)
+                if self.description.attributes.contains(.centerX){
+                    MMLayoutItem.item(target: item, attributes: .centerX).equalTo(nil, multiplier: multiplier, cons: v.x)
+                }
+                if self.description.attributes.contains(.centerY){
+                    MMLayoutItem.item(target: item, attributes: .centerY).equalTo(nil, multiplier: multiplier, cons: v.y)
                 }
             }
             if let v = other as? MMLayoutItem{
                 for i in self.description.attributes.layoutAttributes{
-                    if i == .size || i == .center{
-                        let view = v.target as? ConstraintView
-                        equalTo(view, multiplier: multiplier, cons: cons)
-                    }else{
-                        MMLayoutItem.item(target: self.description.item as AnyObject, attributes: i).equalTo(v, multiplier: multiplier, cons: cons.constant)
-                    }
+                    MMLayoutItem.item(target: item, attributes: i).equalTo(v, multiplier: multiplier, cons: cons.constant,type: type)
                 }
             }
-            
+            if let v = other as? ConstraintView{
+                for i in self.description.attributes.layoutAttributes{
+                    MMLayoutItem.item(target: item, attributes: i).equalTo(MMLayoutItem.item(target: v, attributes: i), multiplier: multiplier, cons: cons.constant,type: type)
+                }
+            }
         }
+    }
+    func lessThanOrEqualTo(_ other:MMConstraintTarget?){
+        if let other = other as? MMLayoutItem{
+            lessThanOrEqualTo(other, multiplier: 1, cons: 0)
+        }else if let other = other as? ConstraintView{
+            lessThanOrEqualTo(other, multiplier: 1, cons: 0)
+        }else if let other = other as? CGSize{
+            lessThanOrEqualTo(other, multiplier: 1, cons: 0)
+        }else if let other = other as? CGPoint{
+            lessThanOrEqualTo(other, multiplier: 1, cons: 0)
+        }else{
+            lessThanOrEqualTo(nil, multiplier: 1, cons: (other?.constant)!)
+        }
+    }
+    func lessThanOrEqualToSuperView(){
+        lessThanOrEqualTo(self.description.item.superview, cons: 0)
+    }
+    func lessThanOrEqualTo(_ other:MMConstraintTarget?, cons:MMConstraintTarget){
+        lessThanOrEqualTo(other, multiplier: 1, cons: cons)
+    }
+    func lessThanOrEqualTo(_ other:MMConstraintTarget?,multiplier:CGFloat){
+        lessThanOrEqualTo(other, multiplier: multiplier, cons: 0)
+    }
+    func lessThanOrEqualTo(_ other:MMConstraintTarget?,multiplier:CGFloat, cons:MMConstraintTarget){
+        equalTo(other, multiplier: multiplier, cons: cons, type: 1)
+    }
+    func greatThanOrEqualTo(_ other:MMConstraintTarget?){
+        if let other = other as? MMLayoutItem{
+            greatThanOrEqualTo(other, multiplier: 1, cons: 0)
+        }else if let other = other as? ConstraintView{
+            greatThanOrEqualTo(other, multiplier: 1, cons: 0)
+        }else if let other = other as? CGSize{
+            greatThanOrEqualTo(other, multiplier: 1, cons: 0)
+        }else if let other = other as? CGPoint{
+            greatThanOrEqualTo(other, multiplier: 1, cons: 0)
+        }else{
+            greatThanOrEqualTo(nil, multiplier: 1, cons: (other?.constant)!)
+        }
+    }
+    func greatThanOrEqualToSuperView(){
+        greatThanOrEqualTo(self.description.item.superview, cons: 0)
+    }
+    func greatThanOrEqualTo(_ other:MMConstraintTarget?, cons:MMConstraintTarget){
+        greatThanOrEqualTo(other, multiplier: 1, cons: cons)
+    }
+    func greatThanOrEqualTo(_ other:MMConstraintTarget?,multiplier:CGFloat){
+        greatThanOrEqualTo(other, multiplier: multiplier, cons: 0)
+    }
+    func greatThanOrEqualTo(_ other:MMConstraintTarget?,multiplier:CGFloat, cons:MMConstraintTarget){
+        equalTo(other, multiplier: multiplier, cons: cons, type: 2)
     }
 }

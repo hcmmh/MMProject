@@ -141,7 +141,7 @@ public class MMLayoutItem{
 }
 extension MMLayoutItem{
     @discardableResult
-    func equalTo(_ other:MMLayoutItem?,multiplier:CGFloat, cons:CGFloat)->NSLayoutConstraint? {
+    func equalTo(_ other:MMLayoutItem?,multiplier:CGFloat, cons:CGFloat,type:Int = 0)->NSLayoutConstraint? {
         let view = self.target as! ConstraintView
         var o = other
         var layout:NSLayoutConstraint? = view.mmConstraint(key: attributes)
@@ -173,14 +173,38 @@ extension MMLayoutItem{
         }
         if attributes == .width || attributes == .height {
             if other == nil{
-                layout = dimension!.constraint(equalToConstant: cons)
+                if type == 1{
+                    layout = dimension!.constraint(lessThanOrEqualToConstant: cons)
+                }else if type == 2{
+                    layout = dimension!.constraint(greaterThanOrEqualToConstant: cons)
+                }else{
+                    layout = dimension!.constraint(equalToConstant: cons)
+                }
             }else{
                 if attributes == .width && o?.attributes == .size{
-                    layout = dimension!.constraint(equalTo: (o?.widthDimension)!, multiplier: multiplier, constant: cons)
+                    if type == 1{
+                        layout = dimension!.constraint(greaterThanOrEqualTo: (o?.widthDimension)!, multiplier: multiplier, constant: cons)
+                    }else if type == 2{
+                        layout = dimension!.constraint(lessThanOrEqualTo: (o?.widthDimension)!, multiplier: multiplier, constant: cons)
+                    }else{
+                        layout = dimension!.constraint(equalTo: (o?.widthDimension)!, multiplier: multiplier, constant: cons)
+                    }
                 }else if attributes == .height && o?.attributes == .size{
-                    layout = dimension!.constraint(equalTo: (o?.heightDimension)!, multiplier: multiplier, constant: cons)
+                    if type == 1{
+                        layout = dimension!.constraint(greaterThanOrEqualTo: (o?.heightDimension)!, multiplier: multiplier, constant: cons)
+                    }else if type == 2{
+                        layout = dimension!.constraint(lessThanOrEqualTo: (o?.heightDimension)!, multiplier: multiplier, constant: cons)
+                    }else{
+                        layout = dimension!.constraint(equalTo: (o?.heightDimension)!, multiplier: multiplier, constant: cons)
+                    }
                 }else{
-                    layout = dimension!.constraint(equalTo: (o?.dimension)!, multiplier: multiplier, constant: cons)
+                    if type == 1{
+                        layout = dimension!.constraint(greaterThanOrEqualTo: (o?.dimension)!, multiplier: multiplier, constant: cons)
+                    }else if type == 2{
+                        layout = dimension!.constraint(lessThanOrEqualTo: (o?.dimension)!, multiplier: multiplier, constant: cons)
+                    }else{
+                        layout = dimension!.constraint(equalTo: (o?.dimension)!, multiplier: multiplier, constant: cons)
+                    }
                 }
             }
         }

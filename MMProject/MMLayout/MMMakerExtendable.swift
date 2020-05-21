@@ -77,9 +77,9 @@ public class MMMakerExtendable:MMMakerConstraintExtendable{
         self.description.attributes += .lastBaseline
         return self
     }
-    internal let description: MMConstraintDescription
+     let description: MMConstraintDescription
     
-    internal init(_ description: MMConstraintDescription) {
+     init(_ description: MMConstraintDescription) {
         self.description = description
     }
 

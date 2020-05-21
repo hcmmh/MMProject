@@ -7,43 +7,43 @@
 //
 
 import UIKit
-internal struct MMConstraintAttributes:OptionSet,ExpressibleByIntegerLiteral{
+ struct MMConstraintAttributes:OptionSet,ExpressibleByIntegerLiteral{
     typealias IntegerLiteralType = UInt
     
-    internal init(rawValue: UInt) {
+     init(rawValue: UInt) {
         self.rawValue = rawValue
     }
-    internal init(_ rawValue: UInt) {
+     init(_ rawValue: UInt) {
         self.init(rawValue: rawValue)
     }
-    internal init(nilLiteral: ()) {
+     init(nilLiteral: ()) {
         self.rawValue = 0
     }
-    internal init(integerLiteral rawValue: IntegerLiteralType) {
+     init(integerLiteral rawValue: IntegerLiteralType) {
         self.init(rawValue: rawValue)
     }
-    internal private(set) var rawValue: UInt
+     private(set) var rawValue: UInt
     // normal
-    internal static var none: MMConstraintAttributes { return 0 }
-    internal static var left: MMConstraintAttributes { return 1 }
-    internal static var top: MMConstraintAttributes {  return 2 }
-    internal static var right: MMConstraintAttributes { return 4 }
-    internal static var bottom: MMConstraintAttributes { return 8 }
-    internal static var leading: MMConstraintAttributes { return 16 }
-    internal static var trailing: MMConstraintAttributes { return 32 }
-    internal static var width: MMConstraintAttributes { return 64}
-    internal static var height: MMConstraintAttributes { return 128 }
-    internal static var centerX: MMConstraintAttributes { return 256 }
-    internal static var centerY: MMConstraintAttributes { return 512 }
-    internal static var safeTop: MMConstraintAttributes { return 1024 }
-    internal static var safeBottom: MMConstraintAttributes { return 2048 }
-    internal static var firstBaseline: MMConstraintAttributes { return 4096 }
-    internal static var lastBaseline: MMConstraintAttributes { return 8192 }
+     static var none: MMConstraintAttributes { return 0 }
+     static var left: MMConstraintAttributes { return 1 }
+     static var top: MMConstraintAttributes {  return 2 }
+     static var right: MMConstraintAttributes { return 4 }
+     static var bottom: MMConstraintAttributes { return 8 }
+     static var leading: MMConstraintAttributes { return 16 }
+     static var trailing: MMConstraintAttributes { return 32 }
+     static var width: MMConstraintAttributes { return 64}
+     static var height: MMConstraintAttributes { return 128 }
+     static var centerX: MMConstraintAttributes { return 256 }
+     static var centerY: MMConstraintAttributes { return 512 }
+     static var safeTop: MMConstraintAttributes { return 1024 }
+     static var safeBottom: MMConstraintAttributes { return 2048 }
+     static var firstBaseline: MMConstraintAttributes { return 4096 }
+     static var lastBaseline: MMConstraintAttributes { return 8192 }
     // aggregates
-    internal static var edges: MMConstraintAttributes { return 15 }
-    internal static var size: MMConstraintAttributes { return 192 }
-    internal static var center: MMConstraintAttributes { return 768 }
-    internal var layoutAttributes:[MMConstraintAttributes] {
+     static var edges: MMConstraintAttributes { return 15 }
+     static var size: MMConstraintAttributes { return 192 }
+     static var center: MMConstraintAttributes { return 768 }
+     var layoutAttributes:[MMConstraintAttributes] {
         var attrs = [MMConstraintAttributes]()
         if (self.contains(MMConstraintAttributes.left)) {
             attrs.append(.left)
@@ -98,18 +98,18 @@ internal struct MMConstraintAttributes:OptionSet,ExpressibleByIntegerLiteral{
         return attrs
     }
 }
-internal func + (left: MMConstraintAttributes, right: MMConstraintAttributes) -> MMConstraintAttributes {
+ func + (left: MMConstraintAttributes, right: MMConstraintAttributes) -> MMConstraintAttributes {
     return left.union(right)
 }
 
-internal func +=(left: inout MMConstraintAttributes, right: MMConstraintAttributes) {
+ func +=(left: inout MMConstraintAttributes, right: MMConstraintAttributes) {
     left.formUnion(right)
 }
 
-internal func -=(left: inout MMConstraintAttributes, right: MMConstraintAttributes) {
+ func -=(left: inout MMConstraintAttributes, right: MMConstraintAttributes) {
     left.subtract(right)
 }
 
-internal func ==(left: MMConstraintAttributes, right: MMConstraintAttributes) -> Bool {
+ func ==(left: MMConstraintAttributes, right: MMConstraintAttributes) -> Bool {
     return left.rawValue == right.rawValue
 }

@@ -12,12 +12,12 @@ public protocol MMLayoutConstraintItem{}
 extension ConstraintView:MMLayoutConstraintItem{}
 extension MMConstraintLayoutGuide:MMLayoutConstraintItem{}
 extension MMLayoutConstraintItem{
-    internal func prepare(){
+     func prepare(){
         if let view = self as? ConstraintView{
             view.translatesAutoresizingMaskIntoConstraints = false
         }
     }
-    internal var superview:ConstraintView?{
+     var superview:ConstraintView?{
         if let view = self as? ConstraintView{
             return view.superview
         }

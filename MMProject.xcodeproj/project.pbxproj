@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		47128208247262A400E39C93 /* MMProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47128207247262A400E39C93 /* MMProgressHUD.swift */; };
+		4712820A2473B56600E39C93 /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471282092473B56600E39C93 /* HUDViewController.swift */; };
 		47195F68246840EF004696CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F67246840EF004696CC /* AppDelegate.swift */; };
 		47195F6A246840EF004696CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47195F69246840EF004696CC /* ViewController.swift */; };
 		47195F6D246840EF004696CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47195F6B246840EF004696CC /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		47128207247262A400E39C93 /* MMProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMProgressHUD.swift; sourceTree = "<group>"; };
+		471282092473B56600E39C93 /* HUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
 		47195F64246840EF004696CC /* MMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47195F67246840EF004696CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47195F69246840EF004696CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				47195F67246840EF004696CC /* AppDelegate.swift */,
 				47195F69246840EF004696CC /* ViewController.swift */,
+				471282092473B56600E39C93 /* HUDViewController.swift */,
 				47FD500C246BECCB00C50AC9 /* MMLayoutDemoViewController.swift */,
 				47128206247262A400E39C93 /* MMProgressHUD */,
 				47754908246EA49300BAB321 /* MMLayout */,
@@ -317,6 +320,7 @@
 				47F1F60B247103B500EA7518 /* MMConstraintAttributes.swift in Sources */,
 				47F1F60F247105B900EA7518 /* MMConstraintDescription.swift in Sources */,
 				47F1F6052470F4A400EA7518 /* MMConstraintMaker.swift in Sources */,
+				4712820A2473B56600E39C93 /* HUDViewController.swift in Sources */,
 				47F1F60D2471055100EA7518 /* MMConstraintItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

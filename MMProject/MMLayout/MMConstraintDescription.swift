@@ -8,14 +8,14 @@
 
 import UIKit
 public class MMConstraintDescription {
-    internal let item: MMLayoutConstraintItem
-    internal var attributes: MMConstraintAttributes
+     let item: MMLayoutConstraintItem
+     var attributes: MMConstraintAttributes
     // MARK: Initialization
     private init(item: MMLayoutConstraintItem, attributes: MMConstraintAttributes) {
         self.item = item
         self.attributes = attributes
     }
-    internal static func description(item: MMLayoutConstraintItem, attributes: MMConstraintAttributes)->MMConstraintDescription{
+     static func description(item: MMLayoutConstraintItem, attributes: MMConstraintAttributes)->MMConstraintDescription{
         if let view = item as? ConstraintView {
             let desc = objc_getAssociatedObject(view, Unmanaged.passUnretained(view).toOpaque().advanced(by: Int(attributes.rawValue)+10020)) as? MMConstraintDescription
             if desc == nil{

@@ -8,13 +8,13 @@
 
 import UIKit
 public final class MMConstraintItem {
-    internal weak var target: AnyObject?
-    internal let attributes: MMConstraintAttributes
-    internal init(target: AnyObject?, attributes:MMConstraintAttributes) {
+     weak var target: AnyObject?
+     let attributes: MMConstraintAttributes
+     init(target: AnyObject?, attributes:MMConstraintAttributes) {
         self.target = target
         self.attributes = attributes
     }
-    internal var layoutConstraintItem: MMLayoutConstraintItem? {
+     var layoutConstraintItem: MMLayoutConstraintItem? {
         return self.target as? MMLayoutConstraintItem
     }
 }

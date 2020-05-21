@@ -14,7 +14,7 @@ class MMLayoutDemoViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "MMLayout布局"
+        self.title = "NSLayoutAnchor布局"
         let edgesView = self.edgesUI()
         let subview = UIView()
         self.view.addSubview(subview)

@@ -27,10 +27,10 @@ extension ConstraintView{
     private func getAddressKey(key:UInt)->UnsafeMutableRawPointer{
         return Unmanaged.passUnretained(self).toOpaque().advanced(by: Int(key))
     }
-    internal func setCustomValue(_ value:Any,forKey:UnsafeMutableRawPointer){
+    func setCustomValue(_ value:Any,forKey:UnsafeMutableRawPointer){
         objc_setAssociatedObject(self, forKey, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
-    internal func getCustomValue(_ forKey:UnsafeMutableRawPointer)->Any?{
+    func getCustomValue(_ forKey:UnsafeMutableRawPointer)->Any?{
         return objc_getAssociatedObject(self, forKey)
     }
     func setMMConstraint(key:MMConstraintAttributes,value:NSLayoutConstraint) {
@@ -63,8 +63,8 @@ extension ConstraintView{
     }
 }
 public struct ConstraintViewLayoutDSL {
-    internal let view:ConstraintView
-    internal init(view:ConstraintView) {
+     let view:ConstraintView
+     init(view:ConstraintView) {
         self.view = view
     }
     func makeConstraints(_ closure: makeClosure) {

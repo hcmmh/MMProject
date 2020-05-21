@@ -15,7 +15,7 @@ class MMConstraintMaker {
         self.item = item
         self.item.prepare()
     }
-    internal func makeExtendableWithAttributes(_ attributes: MMConstraintAttributes) -> MMMakerExtendable {
+     func makeExtendableWithAttributes(_ attributes: MMConstraintAttributes) -> MMMakerExtendable {
         let description = MMConstraintDescription.description(item: self.item, attributes: attributes)
         self.descriptions.append(description)
         return MMMakerExtendable(description)

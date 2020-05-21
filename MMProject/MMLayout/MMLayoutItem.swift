@@ -11,7 +11,7 @@ import UIKit
 import AppKit
 #endif
 public class MMLayoutItem{
-    internal static func item(target: AnyObject?, attributes: MMConstraintAttributes)->MMLayoutItem{
+     static func item(target: AnyObject?, attributes: MMConstraintAttributes)->MMLayoutItem{
         let item = objc_getAssociatedObject(target!, Unmanaged.passUnretained(target!).toOpaque().advanced(by: Int(attributes.rawValue)+10001)) as? MMLayoutItem
         if item == nil{
             let temp = MMLayoutItem(target: target, attributes: attributes)
@@ -21,13 +21,13 @@ public class MMLayoutItem{
             return item!
         }
     }
-    internal weak var target: AnyObject?
-    internal let attributes: MMConstraintAttributes
+     weak var target: AnyObject?
+     let attributes: MMConstraintAttributes
     private init(target: AnyObject?, attributes: MMConstraintAttributes) {
         self.target = target
         self.attributes = attributes
     }
-    internal var layoutConstraintItem: MMLayoutConstraintItem? {
+     var layoutConstraintItem: MMLayoutConstraintItem? {
         return self.target as? MMLayoutConstraintItem
     }
     var xanchor:NSLayoutXAxisAnchor?{
